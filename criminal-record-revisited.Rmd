@@ -1,0 +1,116 @@
+---
+title: "The Mark of a Criminal Record Revisited"
+output: pdf_document
+---
+
+Let's revisit the field experiment by Devah Pager about the the effect of criminal record on employment: 
+
+["The Mark of a Criminal Record"](https://dx.doi.org/10.1086/374403). *American Journal of Sociology* 108(5):937-975. Look [here](https://youtu.be/nUZqvsF_Wt0) to watch Professor Pager discuss the design and result.  
+
+Last time you encountered the paper, you described the different callback rates between groups. Now we are going to use what we've learned about statistical inference to better understand those patterns. 
+
+The dataset is called `criminalrecord.csv`.  You may not need to use all of these variables for this activity.  We've kept these unnecessary variables in the dataset because it is common to receive a dataset with much more information than you need.
+
+---------------------------------------------------------------------------------------------------------
+Name                 Description
+-------------------- ------------------------------------------------------------------------------------
+`jobid`              Job ID number 
+
+`callback`           `1` if tester received a callback, `0` if the tester did not receive a callback.
+
+`black`              `1` if the tester is black, `0` if the tester is white.
+
+`crimrec`            `1` if the tester has a criminal record, `0` if the tester does not.      
+
+`interact`           `1` if tester interacted with employer during the job application, `0` if tester doesn't interact with employer.
+
+`city`               `1` is job is located in the city center, `0` if job is located in the suburbs. 
+
+`distance`           Job’s average distance to downtown.
+
+`custserv`           `1` if job is in the costumer service sector, `0` if it is not.
+
+`manualskill`        `1` if job requires manual skills, `0` if it does not.
+
+----------------------------------------------------------------------------------------------------------
+
+
+## Question 1
+
+In this study we are interested in the effect of a criminal record on callback rates for jobs. Load the data and calculate the average treatment effect using the infer package. Substantively, what does this ATE tell us?
+
+Your workflow will look something like this. Refer to the lecture slides for which arguments you need to specify in each command.
+
+```{r, eval = FALSE}
+dataset |>
+  mutate() |>
+  specify() |>
+  hypothesize() |>
+  calculate()
+```
+
+## Answer 1
+
+```{r}
+
+```
+
+
+
+
+## Question 2
+
+Next we will conduct a hypothesis test to better understand our calculated ATE. What would the null and alternative hypotheses be for a two-sided test? What about for a one-sided test? Which one do you prefer in the context of this study?
+
+## Answer 2
+
+
+
+
+## Question 3
+
+Now let's conduct the hypothesis test using the `infer` package. We will conduct a two-sided test.
+
+Conduct a permutation hypothesis test of whether the criminal record group's callback rate is different from the non-criminal record group's callback rate using the ATE you calculated in the Question 1. Report and interpret the p-value. 
+
+Your workflow will look something like the below. The only differences between this code and the code to calculate the ATE in Question 1 are the `generate()` and `get_p_value()` commands.
+
+```{r, eval = FALSE}
+set.seed(33)
+dataset |>
+  mutate() |> 
+  specify() |>
+  hypothesize() |>
+  generate() |> 
+  calculate() |>
+  get_p_value()
+```
+
+## Answer 3
+
+```{r}
+
+```
+
+
+
+
+## Question 4
+
+Repeat the p-value calculation from Question 3, but this time instead of using the ATE from the dataset, let's imagine that we had a ATE of `-.03`in our sample. Report and interpret the p-value. Set your seed using `set.seed(33)`.
+
+## Answer 4
+
+```{r}
+
+```
+
+
+
+
+## Question 5
+
+For question 3, would you reject the null hypothesis of no average treatment effect at the $\alpha = .05$ level? What about for question 4? Substantively what does this mean in each case?
+
+## Answer 5
+
