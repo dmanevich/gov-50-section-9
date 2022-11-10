@@ -45,7 +45,6 @@ Your workflow will look something like this. Refer to the lecture slides for whi
 dataset |>
   mutate() |>
   specify() |>
-  hypothesize() |>
   calculate()
 ```
 
@@ -73,7 +72,7 @@ Now let's conduct the hypothesis test using the `infer` package. We will conduct
 
 Conduct a permutation hypothesis test of whether the criminal record group's callback rate is different from the non-criminal record group's callback rate using the ATE you calculated in the Question 1. Report and interpret the p-value. 
 
-Your workflow will look something like the below. The only differences between this code and the code to calculate the ATE in Question 1 are the `generate()` and `get_p_value()` commands.
+Your workflow will look something like the below. The only differences between this code and the code to calculate the ATE in Question 1 are the `hypothesize()`, `generate()` and `get_p_value()` commands.
 
 ```{r, eval = FALSE}
 set.seed(33)
